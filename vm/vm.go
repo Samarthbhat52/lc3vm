@@ -7,11 +7,9 @@ const (
 	PC_START uint16 = 0x3000
 )
 
-type regType uint16
-
 // List of 8 available general purpose registers.
 const (
-	R0 regType = iota
+	R0 uint16 = iota
 	R1
 	R2
 	R3
@@ -51,7 +49,7 @@ const (
 )
 
 type VM struct {
-	Reg [8]regType        // Registers
+	Reg [8]uint16         // Registers
 	Mem [MAXMEMORY]uint16 // Memory (RAM)
 
 	R_PC   uint16    // Program counter
