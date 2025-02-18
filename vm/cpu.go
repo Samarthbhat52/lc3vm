@@ -2,20 +2,11 @@ package vm
 
 import "fmt"
 
-func newVm() *VM {
+func NewVm() *VM {
 	return &VM{}
 }
 
-func Execute() {
-	vm := newVm()
-
-	// HACK: Hacked together instruction to test addition.
-	vm.Reg[R1] = uint16(5)
-
-	vm.Mem[PC_START] = uint16(5731)
-
-	// HACK: ----------------------------------------------
-
+func (vm *VM) Execute() {
 	// Init the condition flag to zero (Z) condition.
 	vm.R_COND = Z
 	vm.R_PC = PC_START
