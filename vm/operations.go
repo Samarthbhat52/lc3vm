@@ -22,4 +22,6 @@ func (vm *VM) add(instr uint16) {
 		// add the values
 		vm.Reg[r0] = vm.Reg[r1] + vm.Reg[r2]
 	}
+
+	vm.update_flags(r0)
 }

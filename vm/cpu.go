@@ -23,6 +23,11 @@ func Execute() {
 	running := true
 
 	for i := 0; ; i++ {
+
+		if !running {
+			break
+		}
+
 		instruction := vm.Mem[vm.R_PC]
 
 		if instruction == 0 {
@@ -38,14 +43,9 @@ func Execute() {
 		case OpAdd:
 			vm.add(instruction)
 			fmt.Println("Added value: ", vm.Reg[R3])
-			running = false
 		default:
 			fmt.Println("Wrong optype manh, sorry")
 			running = false
-		}
-
-		if !running {
-			break
 		}
 
 	}
